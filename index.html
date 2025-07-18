@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,9 +17,10 @@
     }
 
     body {
-      background-color: rgb(0, 0, 35);
+      background: linear-gradient(135deg, #0f2027 0%, #2c5364 100%);
       color: white;
       font-family: "poppins", sans-serif;
+      min-height: 100vh;
     }
 
     nav {
@@ -29,6 +29,10 @@
       align-items: center;
       height: 60px;
       background-color: rgb(0, 0, 56);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 12px 0 rgba(44,83,100,0.15);
     }
 
     nav ul {
@@ -44,10 +48,28 @@
     nav ul li a {
       text-decoration: none;
       color: white;
+      position: relative;
+      font-size: 1.1rem;
+      padding-bottom: 4px;
+      transition: color 0.2s;
     }
 
     nav ul li a:hover {
       color: rgb(166, 166, 240);
+    }
+    nav ul li a::after {
+      content: "";
+      display: block;
+      width: 0;
+      height: 2px;
+      background: rgb(170, 107, 228);
+      transition: width 0.3s;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+    }
+    nav ul li a:hover::after {
+      width: 100%;
     }
 
     main hr {
@@ -59,6 +81,7 @@
 
     .left {
       font-size: 1.5rem;
+      font-weight: 700;
     }
 
     .firstsection {
@@ -66,6 +89,7 @@
       justify-content: space-around;
       align-items: center;
       margin: 130px 0;
+      min-height: 60vh;
     }
 
     .firstsection>div {
@@ -74,70 +98,172 @@
 
     .leftsection {
       font-size: 2rem;
+      animation: fadeInUp 1s;
     }
 
     .rightsection img {
       width: 80%;
+      border-radius: 20px;
+      box-shadow: 0 8px 32px 0 rgba(44,83,100,0.25);
+      transition: transform 0.3s;
+    }
+    .rightsection img:hover {
+      transform: scale(1.05) rotate(-2deg);
     }
 
     .purple {
       color: rgb(170, 107, 228);
+      font-weight: 700;
     }
 
     #element {
       color: rgb(170, 107, 228);
+      font-weight: 600;
     }
 
     .secondsection {
       max-width: 80vw;
       margin: auto;
       height: 80vh;
+      min-height: 60vh;
+      animation: fadeIn 1.2s;
     }
 
     .text-gray {
-      color: gray;
-
+      color: #f3f3f3;
+      font-size: 1.2rem;
+      font-weight: 500;
     }
 
     .secondsection h1 {
-      font-family: 1.9rem;
+      font-size: 2.2rem;
+      color: #a76be4;
+      margin-bottom: 30px;
+      font-weight: 700;
+      letter-spacing: 1px;
     }
 
     .secondsection .box {
-      width: 70vw;
-      height: 2px;
-      margin: 56px 0;
-      background: white;
+      width: 90vw;
+      margin: 56px auto;
+      background: transparent;
       display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 40px 30px;
+      box-shadow: none;
+      border-radius: 0;
+      padding: 0 0 60px 0;
     }
 
     .secondsection .vertical {
-      height: 93px;
-      width: 1px;
-      background-color: white;
-      margin: 0 100px;
+      background: #191970;
+      box-shadow: 0 4px 24px 0 rgba(44,83,100,0.10);
+      border-radius: 16px;
+      min-width: 220px;
+      max-width: 260px;
+      width: 100%;
+      padding: 30px 20px 40px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+      cursor: pointer;
+      margin: 0;
+    }
+    .secondsection .vertical:hover {
+      transform: translateY(-10px) scale(1.05);
+      box-shadow: 0 8px 32px 0 rgba(170,107,228,0.15);
     }
 
     .image-top {
       width: 50px;
       position: relative;
       top: -43px;
-      left: -23px
+      left: -23px;
+      transition: transform 0.3s;
+    }
+    .vertical:hover .image-top {
+      transform: scale(1.15) rotate(-8deg);
     }
 
     .vertical-tittle {
       position: relative;
       top: 35px;
       width: 151px;
+      text-align: center;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #a76be4;
     }
 
     .vertical-desc {
-    position: relative;
-    top: 50px;
-    color: gray;
-    width: 150px;
-    font-size: 10px;
+      position: relative;
+      top: 50px;
+      color: #f3f3f3;
+      width: 150px;
+      font-size: 1.15rem;
+      text-align: center;
+      font-weight: 500;
+    }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Project and social card styles */
+    #projects .flex-card, #social .flex-card {
+      background: #191970;
+      padding: 24px;
+      border-radius: 14px;
+      min-width: 220px;
+      flex: 1;
+      box-shadow: 0 4px 24px 0 rgba(44,83,100,0.10);
+      transition: transform 0.3s, box-shadow 0.3s;
+      margin-bottom: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    #projects .flex-card:hover, #social .flex-card:hover {
+      transform: translateY(-10px) scale(1.04);
+      box-shadow: 0 8px 32px 0 rgba(170,107,228,0.15);
+    }
+
+    /* Button animation */
+    .animated-btn {
+      background: #6c63ff;
+      color: white;
+      font-size: 1.2rem;
+      padding: 12px 32px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: background 0.2s, transform 0.2s;
+      display: inline-block;
+      margin: 0 10px;
+      border: none;
+      cursor: pointer;
+    }
+    .animated-btn:hover {
+      background: #a76be4;
+      color: #fff;
+      transform: scale(1.08);
+      box-shadow: 0 4px 16px 0 rgba(170,107,228,0.15);
+    }
+
+    /* Section fade-in animation */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: none; }
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(60px); }
+      to { opacity: 1; transform: none; }
+    }
+    .fade-in {
+      opacity: 0;
+      animation: fadeIn 1.2s forwards;
     }
   </style>
 </head>
@@ -146,18 +272,17 @@
   <header>
     <nav>
       <div class="left">Shivam's Portfolio</div>
-      <div class="right"></div>
       <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/">About</a></li>
-        <li><a href="/">Services</a></li>
-        <li><a href="/">Projects</a></li>
-        <li><a href="/">Contact Me</a></li>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact Me</a></li>
       </ul>
     </nav>
   </header>
   <main>
-    <section class="firstsection">
+    <section class="firstsection" id="home">
       <div class="leftsection">
         Hi, My name is <span class="purple">shivam</span>
 
@@ -169,224 +294,96 @@
       </div>
     </section>
     <hr>
-    <section class="secondsection">
-      <span class="text-gray">what i have dine so far</span>
-      <h1>work Exeprience</h1>
-
-
+    <section id="about" style="padding: 60px 0; max-width: 80vw; margin: auto;">
+      <h1>About Me</h1>
+      <p style="color: #f3f3f3; font-size: 1.1rem;">
+        Hi! I'm Shivam, a passionate developer skilled in web development, AI/ML, data Scientist, and video editing. I love building creative solutions and learning new technologies.
+      </p>
+    </section>
+    <hr>
+    <section id="services" style="padding: 60px 0; max-width: 80vw; margin: auto;">
+      <h1>Services</h1>
+      <ul style="color: #f3f3f3; font-size: 1.1rem; list-style: disc inside;">
+        <li>Web Development</li>
+        <li>AI & Machine Learning Solutions</li>
+        <li>Data Analysis & Visualization</li>
+        <li>Video Editing</li>
+      </ul>
+    </section>
+    <hr>
+    <section class="secondsection" id="skills">
+      <span class="text-gray">Skills & Languages</span>
+      <h1>Skills & Languages</h1>
       <div class="box">
         <div class="vertical">
           <img class="image-top" src="devloper.png" alt="">
-          <div class="vertical-tittle">
-            HTML Developer (2024.)
-          </div>
-          <div class="vertical-desc">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel odit aut enim aperiam optio ullam vero!
-            Incidunt earum doloribus architecto reiciendis pariatur harum!
-          </div>
+          <div class="vertical-tittle">Web Development</div>
+          <div class="vertical-desc">HTML, CSS, JavaScript, React(learning)</div>
         </div>
-         <div class="vertical">
+        <div class="vertical">
           <img class="image-top" src="devloper.png" alt="">
-          <div class="vertical-tittle">
-            HTML Developer (2024.)
-          </div>
-          <div class="vertical-desc">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel odit aut enim aperiam optio ullam vero!
-            Incidunt earum doloribus architecto reiciendis pariatur harum!
-          </div>
+          <div class="vertical-tittle">AI & Machine Learning(learner)</div>
+          <div class="vertical-desc">Python, TensorFlow, scikit-learn</div>
         </div>
-
-         <div class="vertical">
+        <div class="vertical">
           <img class="image-top" src="devloper.png" alt="">
-          <div class="vertical-tittle">
-            HTML Developer (2024.)
-          </div>
-          <div class="vertical-desc">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel odit aut enim aperiam optio ullam vero!
-            Incidunt earum doloribus architecto reiciendis pariatur harum!
-          </div>
+          <div class="vertical-tittle">Data Science & Analysis</div>
+          <div class="vertical-desc">Python, Pandas, Data Visualization</div>
         </div>
-
-         <div class="vertical">
+        <div class="vertical">
           <img class="image-top" src="devloper.png" alt="">
-          <div class="vertical-tittle">
-            HTML Developer (2024.)
-          </div>
-          <div class="vertical-desc">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel odit aut enim aperiam optio ullam vero!
-            Incidunt earum doloribus architecto reiciendis pariatur harum!
-          </div>
+          <div class="vertical-tittle">Video Editing</div>
+          <div class="vertical-desc">Adobe Premiere Pro, After Effects</div>
         </div>
-         <div class="vertical">
+        <div class="vertical">
           <img class="image-top" src="devloper.png" alt="">
-          <div class="vertical-tittle">
-            HTML Developer (2024.)
-          </div>
-          <div class="vertical-desc">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel odit aut enim aperiam optio ullam vero!
-            Incidunt earum doloribus architecto reiciendis pariatur harum!
-          </div>
+          <div class="vertical-tittle">Languages</div>
+          <div class="vertical-desc">Python, JavaScript, HTML, CSS, C++ (basics)</div>
         </div>
-    </section>
-  </main>
-<footer>
-  <div class="flex">
-    <div class="footer-first">
-      <h3>Shivam devloper portfolio</h3>
-    </div>
-    <div class="footer-second"></div>
-    <div class="footer-third"></div>
-    <div class="footer-fourth"></div>
-  </div>
-</footer>
-
-
-  <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
-  <!-- Setup and start animation! -->
-  <script>
-    var typed = new Typed("#element", {
-      strings: [
-        "Web Developer",
-        "AI ML Engineer",
-        "Data Scientist",
-        "Video Editor",
-      ],
-      typeSpeed: 50,
-    });
-  </script>
-</body>
-
-=======
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Shivam - Developer portfolio</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-    rel="stylesheet" />
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      background-color: rgb(0, 0, 35);
-      color: white;
-      font-family: "poppins", sans-serif;
-    }
-
-    nav {
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-      height: 60px;
-      background-color: rgb(0, 0, 56);
-    }
-
-    nav ul {
-      display: flex;
-      justify-content: center;
-    }
-
-    nav ul li {
-      list-style: none;
-      margin: 0 23px;
-    }
-
-    nav ul li a {
-      text-decoration: none;
-      color: white;
-    }
-
-    nav ul li a:hover {
-      color: rgb(166, 166, 240);
-    }
-    main hr{
-      border:0;
-      background:#9c97f1;
-      height: 1.2px;
-      margin:60px 84px;
-    }
-
-    .left {
-      font-size: 1.5rem;
-    }
-
-    .firstsection {
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-      margin: 130px 0;
-    }
-
-    .firstsection>div {
-      width: 30%;
-    }
-
-    .leftsection {
-      font-size: 2rem;
-    }
-
-    .rightsection img {
-      width: 80%;
-    }
-
-    .purple {
-      color: rgb(170, 107, 228);
-    }
-
-    #element {
-      color: rgb(170, 107, 228);
-    }
-
-  .secondsection{
-    max-width: 80vw;
-    margin:auto;
-  }
-  .text-gray{
-    color:gray;
-
-  }
-  </style>
-</head>
-
-<body>
-  <header>
-    <nav>
-      <div class="left">Shivam's Portfolio</div>
-      <div class="right"></div>
-      <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/">About</a></li>
-        <li><a href="/">Services</a></li>
-        <li><a href="/">Projects</a></li>
-        <li><a href="/">Contact Me</a></li>
-      </ul>
-    </nav>
-  </header>
-  <main>
-    <section class="firstsection">
-      <div class="leftsection">
-        Hi, My name is <span class="purple">shivam</span>
-
-        <div>and I am passinate</div>
-        <span id="element"></span>
-      </div>
-      <div class="rightsection">
-        <img src="bg.png" alt="" />
       </div>
     </section>
-  <hr>
-     <section class="secondsection">
-      <span class="text-gray">what i have dine so far</span>
-      <h1>work Exeprience</h1>
-     </section>
+    <hr>
+    <section id="projects" style="padding: 60px 0; max-width: 80vw; margin: auto; margin-top: 120px;">
+      <h1>My Projects</h1>
+      <div style="display: flex; flex-wrap: wrap; gap: 30px;">
+        <div class="flex-card">
+          <h3>Portfolio Website</h3>
+          <p style="color: #f3f3f3;">A modern responsive portfolio to showcase my work and skills.</p>
+          <a href="https://shiivaam7.github.io/Editing_page_website/" target="_blank" rel="noopener" class="animated-btn">View Project</a>
+        </div>
+        <div class="flex-card">
+          <h3>AI Chatbot</h3>
+          <p style="color: #f3f3f3;">An intelligent chatbot using NLP and machine learning.</p>
+          <a href=" https://github.com/Shiivaam7/shiko " target="_blank" rel="noopener" class="animated-btn">GitHub Repo</a>
+        </div>
+        <div class="flex-card">
+          <h3>Data Dashboard</h3>
+          <p style="color: #f3f3f3;">Interactive dashboard for data visualization and analytics.</p>
+          <a href="https://github.com/Shiivaam7/coder-of-delhi-1st-project-using-python" target="_blank" rel="noopener" class="animated-btn">GitHub Repo</a>
+        </div>
+      </div>
+    </section>
+    <hr>
+    <section id="social" style="padding: 60px 0; max-width: 80vw; margin: auto; text-align: center;">
+      <h1>Connect with Me</h1>
+      <div style="display: flex; justify-content: center; gap: 40px; margin-top: 20px;">
+        <a href="https://github.com/Shiivaam7" target="_blank" rel="noopener" class="animated-btn" style="background: #24292e;">GitHub</a>
+        <a href="https://www.linkedin.com/in/shivam-kumar-b67984348/" target="_blank" rel="noopener" class="animated-btn" style="background: #0077b5;">LinkedIn</a>
+      </div>
+    </section>
+    <hr>
+    <section id="contact" style="padding: 60px 0; max-width: 80vw; margin: auto; text-align: center;">
+      <h1>Contact Me</h1>
+      <form id="contact-form" style="display: block; margin: 0 auto; gap: 15px; max-width: 400px; text-align: center;">
+        <input id="contact-name" type="text" placeholder="Your Name" required style="padding: 10px; border-radius: 5px; border: none; width: 100%; margin-bottom: 10px;">
+        <input id="contact-email" type="email" placeholder="shivamraj0K0r@gmail.com" required style="padding: 10px; border-radius: 5px; border: none; width: 100%; margin-bottom: 10px;">
+        <textarea id="contact-message" placeholder="Your Message" required style="padding: 10px; border-radius: 5px; border: none; width: 100%; margin-bottom: 10px;"></textarea>
+        <button type="submit" class="animated-btn" style="padding: 10px 30px; border-radius: 5px; background: #6c63ff; color: white; border: none; margin: 0 auto; display: block;">Send</button>
+      </form>
+      <div style="margin-top: 25px;">
+        <a href="mailto:shivamraj0K0r@gmail.com" class="animated-btn" style="background: #ea4335; color: white;">Gmail</a>
+      </div>
+    </section>
   </main>
   <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
   <!-- Setup and start animation! -->
@@ -400,7 +397,35 @@
       ],
       typeSpeed: 50,
     });
+
+    // Contact form mailto redirect
+    document.getElementById('contact-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      var name = document.getElementById('contact-name').value;
+      var email = document.getElementById('contact-email').value;
+      var message = document.getElementById('contact-message').value;
+      var subject = encodeURIComponent('Portfolio Contact from ' + name);
+      var body = encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\n\n' + message);
+      window.location.href = 'mailto:shivamraj0K0r@gmail.com?subject=' + subject + '&body=' + body;
+    });
+
+   // Section fade-in on scroll
+   function revealOnScroll() {
+     var reveals = document.querySelectorAll('.fade-in');
+     for (var i = 0; i < reveals.length; i++) {
+       var windowHeight = window.innerHeight;
+       var elementTop = reveals[i].getBoundingClientRect().top;
+       var elementVisible = 80;
+       if (elementTop < windowHeight - elementVisible) {
+         reveals[i].style.opacity = 1;
+         reveals[i].style.transform = 'none';
+         reveals[i].style.animation = 'fadeIn 1.2s forwards';
+       }
+     }
+   }
+   window.addEventListener('scroll', revealOnScroll);
+   window.addEventListener('DOMContentLoaded', revealOnScroll);
   </script>
 </body>
->>>>>>> 1ee993e3bd87abafde4a0adcfc79e201161131df
+
 </html>
